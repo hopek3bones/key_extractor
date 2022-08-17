@@ -1,0 +1,47 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<!--<a href="{% url 'admin:index' %}">{% translate 'DSC' %}</a>-->
+{% translate 'Extracte keyword from text' %}
+</div>
+{% endblock %}
+
+{% block title %}{% translate 'DSC Creation' %}{% endblock %}
+
+{% block content %}
+
+<!--<!DOCTYPE html>
+<html lang="fr">-->
+    <!--<head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/static/main/styles/csr_create.css"/>
+        <script src="/static/main/scripts/csr_create.js" defer></script>
+        <title>CSR creation</title>
+    </head>-->
+<!--     <body> -->
+        <!--<h1>CRS Form</h1>
+        <h2>{{ds.name}}</h1>-->
+        <link rel="stylesheet" href="/static/main/styles/index.css"/>
+        <form id="forms" action="#" class="form" method="POST">
+            {% csrf_token %}
+            <div class="form-step form-step-active">
+                <div class="input-group">
+                    <label for="text">Text to extract the keywords</label>
+                    <textarea width="500px" height="250px" name="text" id="text">{{ text }}</textarea>
+                </div>
+                
+                <div class="input-group">
+                    <input id="subm" type="submit" class="btn btn-next" value="Valider"/>
+                </div>
+            </div>
+        </form>
+        <script type="javascript/text">
+
+        </script>
+<!--     </body> -->
+<!-- </html> -->
+{% endblock %}

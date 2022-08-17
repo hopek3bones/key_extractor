@@ -6,7 +6,7 @@ FR_MODEL = ('fr_core_news_md');
 EN_ALPHA = "0123456789abcdefghijklmnopqrstuvwxyz-'";
 FR_ALPHA = "0123456789abcdefghijklmnopqrstuvwxyz-éù'èçàîêâïôüûë";
 EXTRACT_PATTERN = None;
-SBT_AVR  = 3.0;
+SBT_AVR  = 1.5;
 NLP      = None;
 MTC      = None;
 ALP      = None;
@@ -91,7 +91,7 @@ def _reg_counts(elem, dict_):
     return dict_;
 
 
-def get_keywords(text):
+def get_keywords(text, ratio=SBT_AVR):
     global NLP;
     global MTC;
     global ALP
@@ -100,6 +100,7 @@ def get_keywords(text):
     global EXTRACT_PATTERN;
 
     try:
+        if not text: return {};
         MTC.add('mmat_01', EXTRACT_PATTERN);
         doc     = NLP(text);
         matches = MTC(doc);
@@ -123,12 +124,12 @@ def get_keywords(text):
         counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True));
         coun   = list(counts.values());
         if len(coun) == 0: 
-            return [];
+            return {};
 
         min_ = coun[-1];
         max_ = coun[0];
         stdd = max_ - min_;     # print(stdd);
-        avr  = stdd / SBT_AVR;  # print(avr);
+        avr  = stdd / ratio;  # print(avr);
 
         keywords = {};
         for token, count in counts.items():
@@ -141,7 +142,7 @@ def get_keywords(text):
         return keywords;
     except Exception as e:
         _printf("ERROR ==> {}".format(e.args[0]));
-        return [];
+        return {};
 
 
 if __name__ == '__main__':

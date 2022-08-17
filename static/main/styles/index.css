@@ -36,7 +36,7 @@ input {
 }
 
 #forms {
-    width: clamp(320px, 30%, 430px);
+    width: clamp(540px, 30%, 430px);
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 0.35rem;
@@ -49,7 +49,7 @@ input {
 
 #text {
     width: 500px;
-    height: 250px;
+    height: 300px;
 }
 
 #subm {

@@ -33,12 +33,29 @@
                     <label for="text">Text to extract the keywords</label>
                     <textarea width="500px" height="250px" name="text" id="text">{{ text }}</textarea>
                 </div>
-                
+
+                <div class="input-group">
+                    <label for="ratio">Ratio</label>
+                    <input id="ratio" type="number" name="ratio" step="0.01" value="{{ ratio }}" min="1.0"/>
+                </div>
                 <div class="input-group">
                     <input id="subm" type="submit" class="btn btn-next" value="Valider"/>
                 </div>
+                <div class="input-group">
+                    {% if results %}
+                        <h1>List of keywords</h1>
+                        <ol>
+                            {% for word, frq in results.items %}
+                                <li><strong>{{ word }} ({{ frq }})</strong></li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+                </div>
             </div>
         </form>
+        
+
+        
         <script type="javascript/text">
 
         </script>

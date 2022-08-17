@@ -62,7 +62,11 @@ Quit the server with CONTROL-C.
 ```
 
 ## Utilisation
-### Extration de mot-clés
+
+### Interface Web
+Pour afficher l'interface Web, il faut juste taper ce lien : http://127.0.0.1:8000/
+
+### Interface API
 Pour ouvrir l'API d'extraction de mot-clés, il faut taper le lien suivant
 dans le navigateur : http://127.0.0.1:8000/api/get/keywords/ ensuite
 peut essayer avec le code JSON suivant:
